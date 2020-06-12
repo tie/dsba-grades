@@ -34,13 +34,11 @@
 		<input type=number bind:value={H} min=0 max=10 step=any>
 		<input type=range bind:value={H} min=0 max=10 step=any>
 	</label>
-
 	<label>
 		<p>T</p>
 		<input type=number bind:value={T} min=0 max=10 step=any>
 		<input type=range bind:value={T} min=0 max=10 step=any>
 	</label>
-
 	<label>
 		<p>E</p>
 		<input type=number bind:value={E} min=0 max=10 step=any>
