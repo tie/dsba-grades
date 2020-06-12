@@ -10,9 +10,14 @@
 		margin: 0 auto;
 		max-width: 7in;
 	}
+
+	#counter {
+		float: right;
+	}
 </style>
 
 <main>
+	<img id=counter src="https://visitor-badge.glitch.me/badge?page_id=4cf62544-7aa3-4469-9465-59e8fb773f99" alt="visitors count badge">
 	<h1 on:click={addNeko}>DSBA Grades</h1>
 	<Tabs>
 		<TabList>
