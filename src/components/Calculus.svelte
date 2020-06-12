@@ -36,14 +36,19 @@
 	</dl>
 
 	<label>
+		<p>Q<sub>1</sub></p>
+		<input type=number bind:value={Q1} min=0 max=10>
+		<input type=range bind:value={Q1} min=0 max=10>
+	</label>
+	<label>
 		<p>Final Cumulative Mark (see <a href="https://docs.google.com/spreadsheets/d/1lkT9esL5MIFYo4PZWrX_wgpK4baQblfoibfVE6UuHyY">results</a>)</p>
 		<input type=number bind:value={RA} min=0 max=5 step=any>
 		<input type=range bind:value={RA} min=0 max=5 step=any>
 	</label>
 	<label>
-		<p>Q<sub>1</sub></p>
-		<input type=number bind:value={Q1} min=0 max=10>
-		<input type=range bind:value={Q1} min=0 max=10>
+		<p>E</p>
+		<input type=number bind:value={E} min=0 max=10 step=any>
+		<input type=range bind:value={E} min=0 max=10 step=any>
 	</label>
 
 	<table>
