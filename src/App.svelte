@@ -3,7 +3,15 @@
 	import { DM, Calculus, Algebra, LAaG } from './components.js'
 	import { addNeko } from './neko.js'
 </script>
-	
+
+<style>
+	main {
+		font-size: 1.2rem;
+		margin: 0 auto;
+		max-width: 7in;
+	}
+</style>
+
 <main>
 	<h1 on:click={addNeko}>DSBA Grades</h1>
 	<Tabs>
