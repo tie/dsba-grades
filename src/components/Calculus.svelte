@@ -42,8 +42,8 @@
 	</label>
 	<label>
 		<p>Q<sub>1</sub></p>
-		<input type=number bind:value={H} min=0 max=10>
-		<input type=range bind:value={H} min=0 max=10>
+		<input type=number bind:value={Q1} min=0 max=10>
+		<input type=range bind:value={Q1} min=0 max=10>
 	</label>
 
 	<table>
