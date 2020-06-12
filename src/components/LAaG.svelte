@@ -36,11 +36,11 @@
 		<tr>
 			<td>I<sub>i</sub></td>
 			<td>=</td>
-			<td>Round(A<sub>i</sub>, 3/10*E<sub>i</sub> + 7/10*C<sub>i</sub>)</td>
+			<td>round<sub>A<sub>i</sub></sub>(3/10*E<sub>i</sub> + 7/10*C<sub>i</sub>)</td>
 		<tr>
 			<td>F</td>
 			<td>=</td>
-			<td>Round((A<sub>1</sub> + A<sub>2</sub>)/2, 1/4*I<sub>1</sub> + 3/4*I<sub>2</sub>)</td>
+			<td>round<sub>(A<sub>1</sub> + A<sub>2</sub>)/2</sub>(1/4*I<sub>1</sub> + 3/4*I<sub>2</sub>)</td>
 	</table>
 
 	<dl>
@@ -132,6 +132,6 @@
 		<tr>
 			<td>F</td>
 			<td>=</td>
-			<td>{F} = round({F_grade}, {A_year})</td>
+			<td>{F} = round<sub>{A_year}</sub>({F_grade})</td>
 	</table>
 </section>
