@@ -40,7 +40,7 @@
 		<tr>
 			<td>F</td>
 			<td>=</td>
-			<td>round<sub>(A<sub>1</sub> + A<sub>2</sub>)/2</sub>(1/4*I<sub>1</sub> + 3/4*I<sub>2</sub>)</td>
+			<td>round<sub>(A<sub>1</sub>+A<sub>2</sub>)/2</sub>(1/4*I<sub>1</sub> + 3/4*I<sub>2</sub>)</td>
 	</table>
 
 	<dl>
@@ -128,7 +128,7 @@
 		<tr>
 			<td>I<sub>2</sub></td>
 			<td>=</td>
-			<td>{I2} = round({I2_grade}, {A1})</td>
+			<td>{I2} = round<sub>{A1}</sub>({I2_grade})</td>
 		<tr>
 			<td>F</td>
 			<td>=</td>
