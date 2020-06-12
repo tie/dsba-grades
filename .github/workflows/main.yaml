@@ -1,0 +1,71 @@
+name: CI
+on:
+  pull_request:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: ['14']
+    steps:
+      - name: Checkout latest code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+          registry-url: 'https://npm.pkg.github.com'
+
+      - name: Get Node.js cache directory
+        id: npm-cache
+        run: |
+          echo "::set-output name=dir::$(npm config get cache)"
+
+      - name: Set up Node.js cache
+        uses: actions/cache@v1
+        with:
+          path: ${{ steps.npm-cache.outputs.dir }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run build
+        run: npm --silent run build
+        env:
+          NODE_OPTIONS: '--experimental-modules'
+          NODE_NO_WARNINGS: '1'
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: build
+          path: public
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs:
+      - build
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          path: source
+      - run: git config --global user.name actions
+      - run: git config --global user.email '<>'
+      - run: git -C source fetch origin gh-pages
+      - run: git -C source checkout -b gh-pages origin/gh-pages
+      - uses: actions/download-artifact@v2
+        with:
+          name: build
+          path: build
+      - run: git --git-dir=source/.git --work-tree=build add -A
+      - run: git -C source commit -m "${GITHUB_SHA}" && git -C source push origin gh-pages || git -C source status
