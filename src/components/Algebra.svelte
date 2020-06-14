@@ -1,6 +1,7 @@
 <script>
-	let [H, T, E] = [0, 0, 0]
+	let [S, T, E] = [0, 0, 0]
 
+	$: H = (10./36)*S
 	$: C = (6./10)*H + (4./10)*T
 	$: F = (5./10)*C + (5./10)*E
 </script>
@@ -20,19 +21,22 @@
 
 	<dl>
 		<dt>H</dt>
-		<dd>Homework. Up to 36 points multiplied by 10/36.</dd>
+		<dd>Homework</dd>
 
 		<dt>T</dt>
 		<dd>Control work</dd>
 
 		<dt>E</dt>
 		<dd>Exam</dd>
+
+		<dt>S</dt>
+		<dd>Up to 36 homework points (see <a href="https://docs.google.com/spreadsheets/d/1HUJ-WoTtWmpYSNq2okUr99AKX2MmVlC3pnctCMsSEEI">results</a>)</dd>
 	</dl>
 
 	<label>
-		<p>H</p>
-		<input type=number bind:value={H} min=0 max=10 step=any>
-		<input type=range bind:value={H} min=0 max=10 step=any>
+		<p>S</p>
+		<input type=number bind:value={S} min=0 max=36>
+		<input type=range bind:value={S} min=0 max=36>
 	</label>
 	<label>
 		<p>T</p>
